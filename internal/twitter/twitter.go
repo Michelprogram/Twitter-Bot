@@ -16,10 +16,10 @@ type Twitter struct {
 func NewTwitter() *Twitter {
 
 	return &Twitter{
-		API_KEY_SECRET:      "swPe20Z7mVWskHInyXX4iuHygVboK4RXxPoiKzPTFMsruAYizE",
-		API_KEY:             "XbH4MpafUifzc0IyY3KYosOOw",
-		ACCESS_TOKEN_SECRET: "uJWlcbDG35rPTk4fodPRlLnJ1w89fyzgMMGPlfE3m4Hhe",
-		ACCESS_TOKEN:        "872417601846218752-gBeOuJXS2BIm3tEgIXJdPPXTpjNfcJ4",
+		API_KEY_SECRET:      "",
+		API_KEY:             "",
+		ACCESS_TOKEN_SECRET: "",
+		ACCESS_TOKEN:        "",
 	}
 }
 
