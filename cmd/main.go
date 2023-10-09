@@ -5,18 +5,11 @@ import (
 	"internal/utils"
 	"log"
 	"os"
-
-	"github.com/joho/godotenv"
 )
 
 func main() {
 
 	log.Printf("Start script golang\n")
-
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatalf("No .env file found %s\n", err.Error())
-	}
 
 	profile, err := twitter.NewTwitter()
 

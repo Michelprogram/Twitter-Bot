@@ -1,0 +1,22 @@
+name: daily-twitter-bot-name
+
+on:
+  schedule:
+    - cron: "00 00 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: "1.21.x"
+        env:
+          API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+          API_KEY: ${{ secrets.API_KEY }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Display Go version
+        run: make build-run
