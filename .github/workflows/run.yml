@@ -5,22 +5,21 @@ on:
   schedule:
     - cron: "00 00 * * *"
 
-env:
-  API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
-  API_KEY: ${{ secrets.API_KEY }}
-  ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
-  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-
 jobs:
   Rename:
     runs-on: ubuntu-latest
+    env:
+      API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
+      API_KEY: ${{ secrets.API_KEY }}
+      ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
-          go-version: "1.21.x"
-      - name: Test
-        run: echo "Test ${{ secrets.API_KEY_SECRET }}"
-      - name: Run bot rename
-        run: make build-github
+          go-version: "1.19.x"
+      - name: Go build
+        run: go build -o twitter-bot -v ./...
+      - name: Run app
+        run: ./twitter-bot
