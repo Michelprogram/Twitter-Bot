@@ -10,4 +10,4 @@ run:
 build-run: clear build run-preview
 build-github:
 	@go build -o twitter-bot -v ./...
-	./twitter-bot
+	./twitter-bot 
