@@ -14,10 +14,11 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: "1.21.x"
-        env:
-          API_KEY_SECRET: "${{ secrets.API_KEY_SECRET }}"
-          API_KEY: "${{ secrets.API_KEY }}"
-          ACCESS_TOKEN_SECRET: "${{ secrets.ACCESS_TOKEN_SECRET }}"
-          ACCESS_TOKEN: "${{ secrets.ACCESS_TOKEN }}"
+      - name: Set variables
+        run: |
+          echo "API_KEY_SECRET=${{ secrets.API_KEY_SECRET }}" >> "$GITHUB_ENV"
+          echo "API_KEY=${{ secrets.API_KEY }}" >> "$GITHUB_ENV"
+          echo "ACCESS_TOKEN_SECRET=${{ secrets.ACCESS_TOKEN_SECRET }}" >> "$GITHUB_ENV"
+          echo "ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }}" >> "$GITHUB_ENV"
       - name: Run bot rename
         run: make build-github
