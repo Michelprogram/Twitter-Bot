@@ -20,4 +20,4 @@ jobs:
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Run bot rename
-        run: make build-run
+        run: make build-github
