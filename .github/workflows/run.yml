@@ -1,6 +1,7 @@
 name: daily-twitter-bot-name
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "00 00 * * *"
 
