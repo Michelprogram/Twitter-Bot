@@ -1,5 +1,5 @@
 clear:
-	rm twitter-bot
+	rm twitter-bot || true
 	go clean -cache ./...
 build:
 	@go build -o twitter-bot -v ./...

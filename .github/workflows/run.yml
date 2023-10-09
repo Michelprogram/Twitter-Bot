@@ -19,5 +19,5 @@ jobs:
           API_KEY: ${{ secrets.API_KEY }}
           ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      - name: Display Go version
+      - name: Run bot rename
         run: make build-run
