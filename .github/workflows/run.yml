@@ -6,7 +6,7 @@ on:
     - cron: "00 00 * * *"
 
 jobs:
-  Rename:
+  deploy-job:
     runs-on: ubuntu-latest
     env:
       API_KEY_SECRET: ${{ secrets.API_KEY_SECRET }}
@@ -23,3 +23,16 @@ jobs:
         run: go build -o twitter-bot -v ./...
       - name: Run app
         run: ./twitter-bot
+
+  keepalive-job:
+    name: Keepalive Workflow
+    if: ${{ always() }}
+    needs: deploy-job
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/keepalive-workflow@v2
+        with:
+          use_api: false
