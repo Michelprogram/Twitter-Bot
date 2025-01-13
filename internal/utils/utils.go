@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-var travel = time.Date(2025, time.January, 1, 00, 0, 0, 0, time.UTC)
+var travel = time.Date(2025, time.April, 22, 11, 0, 0, 0, time.UTC)
 var url = "https://api.twitter.com/1.1/account/update_profile.json?name="
 var canadianFlag = "%F0%9F%87%A8%F0%9F%87%A6"
 var pseudo = "Bivouac%20-%20"
